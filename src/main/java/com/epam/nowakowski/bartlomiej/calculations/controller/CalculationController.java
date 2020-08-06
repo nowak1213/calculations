@@ -1,6 +1,7 @@
 package com.epam.nowakowski.bartlomiej.calculations.controller;
 
 import com.epam.nowakowski.bartlomiej.calculations.model.request.ClientWrapper;
+import com.epam.nowakowski.bartlomiej.calculations.model.response.CalculationResult;
 import com.epam.nowakowski.bartlomiej.calculations.service.CalculationService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,7 @@ public class CalculationController {
    }
 
    @GetMapping
-   public String get(@RequestBody ClientWrapper clientWrapper) {
-      return "First approach";
+   public CalculationResult get(@RequestBody ClientWrapper clientWrapper) {
+      return calculationService.performCalculation(clientWrapper.getClients().getClient());
    }
 }

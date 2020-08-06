@@ -3,22 +3,26 @@ package com.epam.nowakowski.bartlomiej.calculations.model.response;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+//TODO: Add serializer into BigDecimal
 public class ClientCalculatedInfo {
 
-   private final String name;
+   private String name;
 
-   private final String surname;
+   private String surname;
 
-   private final BigDecimal currentBalance;
+   private BigDecimal currentBalance;
 
-   private final BigDecimal turnout;
+   private BigDecimal turnout;
 
-   private final BigDecimal incomes;
+   private BigDecimal incomes;
 
-   private final BigDecimal expenditures;
+   private BigDecimal expenditures;
 
-   public ClientCalculatedInfo(final String name, final String surname, final BigDecimal currentBalance,
-         final BigDecimal turnout, final BigDecimal incomes, final BigDecimal expenditures) {
+   public ClientCalculatedInfo() {
+   }
+
+   public ClientCalculatedInfo(String name, String surname, BigDecimal currentBalance, BigDecimal turnout,
+         BigDecimal incomes, BigDecimal expenditures) {
       this.name = name;
       this.surname = surname;
       this.currentBalance = currentBalance;
@@ -49,6 +53,30 @@ public class ClientCalculatedInfo {
 
    public BigDecimal getExpenditures() {
       return expenditures;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   public void setSurname(String surname) {
+      this.surname = surname;
+   }
+
+   public void setCurrentBalance(BigDecimal currentBalance) {
+      this.currentBalance = currentBalance;
+   }
+
+   public void setTurnout(BigDecimal turnout) {
+      this.turnout = turnout;
+   }
+
+   public void setIncomes(BigDecimal incomes) {
+      this.incomes = incomes;
+   }
+
+   public void setExpenditures(BigDecimal expenditures) {
+      this.expenditures = expenditures;
    }
 
    @Override
