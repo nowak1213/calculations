@@ -1,8 +1,10 @@
 package com.epam.nowakowski.bartlomiej.calculations.model.request;
 
+import com.epam.nowakowski.bartlomiej.calculations.DecimalDeserializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -21,6 +23,7 @@ public class Transaction {
    private final LocalDate date;
 
    @JsonProperty(required = true)
+   @JsonDeserialize(using = DecimalDeserializer.class)
    private final BigDecimal value;
 
    @JsonProperty(required = true)

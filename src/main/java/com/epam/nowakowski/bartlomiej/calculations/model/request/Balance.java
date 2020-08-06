@@ -1,8 +1,10 @@
 package com.epam.nowakowski.bartlomiej.calculations.model.request;
 
+import com.epam.nowakowski.bartlomiej.calculations.DecimalDeserializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -11,6 +13,7 @@ import java.util.Objects;
 public class Balance {
 
    @JsonProperty(required = true)
+   @JsonDeserialize(using = DecimalDeserializer.class)
    private final BigDecimal total;
 
    @JsonProperty(required = true)

@@ -10,6 +10,7 @@ import java.util.List;
 public class CalculationService {
 
    public CalculationResult performCalculation(final List<Client> clients) {
-      return new CalculationResult();
+      double asd = 23.41;
+      return null;
    }
 }
