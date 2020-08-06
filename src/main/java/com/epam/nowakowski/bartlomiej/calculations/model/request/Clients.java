@@ -1,4 +1,4 @@
-package com.epam.nowakowski.bartlomiej.calculations.model;
+package com.epam.nowakowski.bartlomiej.calculations.model.request;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

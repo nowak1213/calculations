@@ -1,12 +1,12 @@
 package com.epam.nowakowski.bartlomiej.calculations.controller;
 
-import com.epam.nowakowski.bartlomiej.calculations.model.Balance;
-import com.epam.nowakowski.bartlomiej.calculations.model.Client;
-import com.epam.nowakowski.bartlomiej.calculations.model.ClientWrapper;
-import com.epam.nowakowski.bartlomiej.calculations.model.Clients;
-import com.epam.nowakowski.bartlomiej.calculations.model.Info;
-import com.epam.nowakowski.bartlomiej.calculations.model.Transaction;
-import com.epam.nowakowski.bartlomiej.calculations.model.Type;
+import com.epam.nowakowski.bartlomiej.calculations.model.request.Balance;
+import com.epam.nowakowski.bartlomiej.calculations.model.request.Client;
+import com.epam.nowakowski.bartlomiej.calculations.model.request.ClientWrapper;
+import com.epam.nowakowski.bartlomiej.calculations.model.request.Clients;
+import com.epam.nowakowski.bartlomiej.calculations.model.request.Info;
+import com.epam.nowakowski.bartlomiej.calculations.model.request.Transaction;
+import com.epam.nowakowski.bartlomiej.calculations.model.request.Type;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,7 +18,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
