@@ -3,23 +3,19 @@ package com.epam.nowakowski.bartlomiej.calculations.model.response;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-//TODO: Add serializer into BigDecimal
 public class ClientCalculatedInfo {
 
-   private String name;
+   private final String name;
 
-   private String surname;
+   private final String surname;
 
-   private BigDecimal currentBalance;
+   private final BigDecimal currentBalance;
 
-   private BigDecimal turnout;
+   private final BigDecimal turnout;
 
-   private BigDecimal incomes;
+   private final BigDecimal incomes;
 
-   private BigDecimal expenditures;
-
-   public ClientCalculatedInfo() {
-   }
+   private final BigDecimal expenditures;
 
    public ClientCalculatedInfo(String name, String surname, BigDecimal currentBalance, BigDecimal turnout,
          BigDecimal incomes, BigDecimal expenditures) {
@@ -53,30 +49,6 @@ public class ClientCalculatedInfo {
 
    public BigDecimal getExpenditures() {
       return expenditures;
-   }
-
-   public void setName(String name) {
-      this.name = name;
-   }
-
-   public void setSurname(String surname) {
-      this.surname = surname;
-   }
-
-   public void setCurrentBalance(BigDecimal currentBalance) {
-      this.currentBalance = currentBalance;
-   }
-
-   public void setTurnout(BigDecimal turnout) {
-      this.turnout = turnout;
-   }
-
-   public void setIncomes(BigDecimal incomes) {
-      this.incomes = incomes;
-   }
-
-   public void setExpenditures(BigDecimal expenditures) {
-      this.expenditures = expenditures;
    }
 
    @Override

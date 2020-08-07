@@ -7,17 +7,20 @@ import com.epam.nowakowski.bartlomiej.calculations.model.request.Clients;
 import com.epam.nowakowski.bartlomiej.calculations.model.request.Info;
 import com.epam.nowakowski.bartlomiej.calculations.model.request.Transaction;
 import com.epam.nowakowski.bartlomiej.calculations.model.request.Type;
+import com.epam.nowakowski.bartlomiej.calculations.service.CalculationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -34,14 +37,39 @@ public class CalculationControllerMVCTest {
    @Autowired
    private ObjectMapper objectMapper;
 
+   @MockBean
+   private CalculationService calculationService;
+
    @Test
    void shouldSuccessfullySendRequestAndGet200() throws Exception {
-
       ClientWrapper clientWrapper = prepareCorrectBody();
 
-      mockMvc.perform(
-            get("/calculation").content(objectMapper.writeValueAsString(clientWrapper)).contentType("application/json"))
+      mockMvc.perform(get("/calculations")
+            .content(objectMapper.writeValueAsString(clientWrapper))
+            .contentType("application/json"))
             .andExpect(status().isOk());
+   }
+
+   @Test
+   void shouldReturn400WhenClientsObjectNull() throws Exception {
+      ClientWrapper clientWrapper = new ClientWrapper(null);
+
+      mockMvc.perform(get("/calculations")
+            .content(objectMapper.writeValueAsString(clientWrapper))
+            .contentType("application/json"))
+            .andExpect(status().isBadRequest());
+   }
+
+   @Test
+   void shouldReturn400WhenClientsListEmpty() throws Exception {
+      List<Client> clientList = new ArrayList<>();
+      Clients clients = new Clients(clientList);
+      ClientWrapper clientWrapper = new ClientWrapper(clients);
+
+      mockMvc.perform(get("/calculations")
+            .content(objectMapper.writeValueAsString(clientWrapper))
+            .contentType("application/json"))
+            .andExpect(status().isBadRequest());
    }
 
    private ClientWrapper prepareCorrectBody() {
