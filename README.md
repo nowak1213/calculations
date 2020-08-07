@@ -1,8 +1,7 @@
-#To build go to main project folder ("calculations") and use: "mvn clean install"
-#To run project go to main project folder ("calculations") and use: "mvn spring-boot:run"
+To build go to main project folder ("calculations") and use: "mvn clean install" </br>
+To run project go to main project folder ("calculations") and use: "mvn spring-boot:run" </br>
 
-#1.Exemplary json to run 
-###
+#1.Exemplary json to run </br>
 {
   "clients": {
     "client": [
@@ -171,11 +170,11 @@ I've prepared wrapper class to handle such json. That's why I've prepared object
 
 Thanks to that object structure in code would be easier. An example can be the response object where we've got easier structure. 
 
-#3. What should be improved?
+#2. What should be improved?
 1. I've prepared advice controller but there should be more informative body of exceptions, for example when we've got wrong date format there should be an info about that.
 2. In response object we've got BigDecimals representing calculations. BigDecimals has dots inside while in input we send commas. It should be standardized.
 
-#4. How to understand results?
+#3. How to understand results?
 Response to above example:
 {
     "clientCalculatedInfo": [
